@@ -9,10 +9,11 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.resume.R;
+import com.example.resume.common.BaseActivity;
 import com.example.resume.common.DynamicTypeChangeListener;
 import com.example.resume.weather.models.WeatherResponse;
 
-public class WeatherActivity extends AppCompatActivity {
+public class WeatherActivity extends BaseActivity {
 
     TextView tvTemperature, tvFeelsLike, tvHumidity;
     EditText etCity;
@@ -24,7 +25,7 @@ public class WeatherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
         getSupportActionBar().hide();
-        viewModel = new WeatherViewModel();
+        viewModel = new WeatherViewModel(this,this);
         tvTemperature = findViewById(R.id.tvTemperature);
         tvFeelsLike = findViewById(R.id.tvFeelsLike);
         tvHumidity = findViewById(R.id.tvHumidity);
